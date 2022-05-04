@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32502.413
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderAlerter", "ReminderAlerter\ReminderAlerter.csproj", "{57469D5B-1D39-4219-B963-98EA0AB4AE59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderAlertViewer", "ReminderAlertViewer\ReminderAlertViewer.csproj", "{A6D38DBA-0D18-48B6-B350-11ACD73B2276}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderScheduler", "ReminderScheduler\ReminderScheduler.csproj", "{399108D8-283D-4C44-AA3D-6F85BD405AD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57469D5B-1D39-4219-B963-98EA0AB4AE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57469D5B-1D39-4219-B963-98EA0AB4AE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57469D5B-1D39-4219-B963-98EA0AB4AE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57469D5B-1D39-4219-B963-98EA0AB4AE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D38DBA-0D18-48B6-B350-11ACD73B2276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D38DBA-0D18-48B6-B350-11ACD73B2276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D38DBA-0D18-48B6-B350-11ACD73B2276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D38DBA-0D18-48B6-B350-11ACD73B2276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399108D8-283D-4C44-AA3D-6F85BD405AD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399108D8-283D-4C44-AA3D-6F85BD405AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399108D8-283D-4C44-AA3D-6F85BD405AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399108D8-283D-4C44-AA3D-6F85BD405AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9E60DB0-9715-4A14-BB40-1634112572A0}
+	EndGlobalSection
+EndGlobal
