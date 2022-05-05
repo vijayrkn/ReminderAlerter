@@ -1,9 +1,41 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.SignalR.Client
+@implements IAsyncDisposable
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Reminders</PageTitle>
+<h1>Reminders</h1>
+<ul id="messagesList">
+    @foreach (var reminder in reminders)
+    {
+        <li>@reminder</li>
+    }
+</ul>
+@code {
+    private HubConnection? hubConnection;
+    private List<string> reminders = new List<string>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:7007/reminder")
+            .WithAutomaticReconnect()
+            .Build();
 
-<h1>Hello, world!</h1>
+        hubConnection.On<string>("ReceiveMessage", (message) =>
+        {
+            var encodedMsg = $"{message}";
+            reminders.Add(encodedMsg);
+            StateHasChanged();
+        });
 
-Welcome to your new app.
+        await hubConnection.StartAsync();
+    }
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
+    }
+}
