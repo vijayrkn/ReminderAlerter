@@ -16,7 +16,7 @@ namespace ReminderScheduler
         }
 
         [FunctionName("ReminderScheduler")]
-        public void Run([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer, ILogger log)
+        public void Run([TimerTrigger("*/2 * * * * *")] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             string api = _configuration["API"];
