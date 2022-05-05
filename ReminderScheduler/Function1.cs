@@ -16,14 +16,14 @@ namespace ReminderScheduler
         }
 
         [FunctionName("ReminderScheduler")]
-        public void Run([TimerTrigger("* * * * *")] TimerInfo myTimer, ILogger log)
+        public void Run([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             string api = _configuration["API"];
             if (!string.IsNullOrEmpty(api))
             {
                 HttpClient client = new HttpClient();
-                client.GetAsync(@"{api}/Reminder");
+                client.GetAsync($"{api}?reminder=Drink%20water");
             }
         }
     }
