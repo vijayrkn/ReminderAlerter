@@ -12,9 +12,9 @@ builder.Services.AddResponseCompression(opts =>
         new[] { "application/octet-stream" });
 });
 
-builder.Services.AddCors(options => options.AddPolicy("ApiCorsPolicy", builder =>
+builder.Services.AddCors(options => options.AddPolicy("ApiCorsPolicy", corsBuilder =>
 {
-    builder.WithOrigins("https://localhost:7292").AllowAnyMethod().AllowAnyHeader();
+    corsBuilder.WithOrigins(builder.Configuration["SignalRClient"]).AllowAnyMethod().AllowAnyHeader();
 }));
 
 var app = builder.Build();

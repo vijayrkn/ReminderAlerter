@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.SignalR.Client
+@inject IConfiguration Configuration
 @implements IAsyncDisposable
 
 <PageTitle>Reminders</PageTitle>
@@ -17,7 +18,7 @@
     protected override async Task OnInitializedAsync()
     {
         hubConnection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:7007/reminder")
+            .WithUrl(Configuration["SignalR"])
             .WithAutomaticReconnect()
             .Build();
 
