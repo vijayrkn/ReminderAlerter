@@ -28,8 +28,6 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 app.MapHub<ReminderHub>("/reminder");
-await using var scope = app.Services?.GetService<IServiceScopeFactory>()?.CreateAsyncScope();
-var context = scope?.ServiceProvider.GetRequiredService<IHubContext<ReminderHub>>();
 app.MapPost("/broadcast", async (IHubContext<ReminderHub> context, string reminder) =>
 {
     await context.Clients.All.SendAsync("ReceiveMessage", $"{DateTime.Now.ToString("MMMM dd H:mm:ss tt")}: {reminder}");
