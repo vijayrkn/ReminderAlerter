@@ -30,9 +30,9 @@ app.UseHttpsRedirection();
 app.MapHub<ReminderHub>("/reminder");
 await using var scope = app.Services?.GetService<IServiceScopeFactory>()?.CreateAsyncScope();
 var context = scope?.ServiceProvider.GetRequiredService<IHubContext<ReminderHub>>();
-app.MapGet("/broadcast", async (string reminder) =>
+app.MapPost("/broadcast", async (IHubContext<ReminderHub> context, string reminder) =>
 {
-    await context!.Clients.All.SendAsync("ReceiveMessage", $"{DateTime.Now.ToString("MMMM dd H:mm:ss tt")}: {reminder}");
+    await context.Clients.All.SendAsync("ReceiveMessage", $"{DateTime.Now.ToString("MMMM dd H:mm:ss tt")}: {reminder}");
 });
 
 app.Run();

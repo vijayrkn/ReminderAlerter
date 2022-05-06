@@ -23,7 +23,7 @@ namespace ReminderScheduler
             if (!string.IsNullOrEmpty(api))
             {
                 HttpClient client = new HttpClient();
-                client.GetAsync($"{api}?reminder=Drink%20water");
+                client.PostAsync($"{api}?reminder=Drink%20water", null);
             }
         }
     }
